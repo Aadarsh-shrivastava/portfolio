@@ -1,0 +1,398 @@
+{
+  "seo": {
+    "siteUrl": "https://aadarshkhurai.github.io",
+    "siteName": "Aadarsh Shrivastava Portfolio",
+    "locale": "en_US",
+    "locationCity": "Mumbai",
+    "locationCountryCode": "IN",
+    "ogImage": "/profile.jpg",
+    "titleDefault": "Aadarsh Shrivastava | Backend Engineer Portfolio",
+    "titleTemplate": "%s | Aadarsh Shrivastava",
+    "description": "Aadarsh Shrivastava is a Backend Engineer building distributed systems, real-time architectures, and high-performance APIs with Node.js, TypeScript, Go, PostgreSQL, Redis, and AWS.",
+    "keywords": [
+      "Aadarsh Shrivastava",
+      "Backend Engineer",
+      "Node.js Developer",
+      "TypeScript Developer",
+      "Golang Developer",
+      "Distributed Systems",
+      "Real-Time Systems",
+      "WebSockets",
+      "Redis",
+      "PostgreSQL",
+      "AWS",
+      "Mumbai"
+    ],
+    "twitterTitle": "Aadarsh Shrivastava | Backend Engineer",
+    "twitterDescription": "Backend Engineer specializing in distributed systems, real-time architectures, and performance optimization with Node.js, TypeScript, and Go.",
+    "homeTitle": "Backend Engineer, Distributed & Real-Time Systems",
+    "homeDescription": "Aadarsh Shrivastava is a Backend Engineer in Mumbai with 3+ years of experience designing scalable APIs, real-time architectures, and event-driven systems with strong end-to-end ownership.",
+    "homeCanonical": "https://aadarshkhurai.github.io",
+    "whoIsHeading": "Who Is Aadarsh Shrivastava?",
+    "whoIsSummary": "Aadarsh Shrivastava is a backend engineer specializing in distributed systems, real-time architectures, and performance optimization. He has professional experience designing scalable APIs and event-driven systems, with a track record of improving system efficiency, reducing latency, and delivering reliable, production-grade services across Node.js, TypeScript, Go, PostgreSQL, Redis, WebSockets, Docker, and AWS.",
+    "hiringSummary": "For teams hiring backend engineers who can own system design, real-time performance, and production reliability, Aadarsh brings strong hands-on experience in shipping business-critical, high-throughput systems.",
+    "knowsAbout": [
+      "Backend Engineering",
+      "Distributed Systems",
+      "Real-Time Architectures",
+      "Event-Driven Systems",
+      "Node.js",
+      "TypeScript",
+      "Golang",
+      "PostgreSQL",
+      "Redis",
+      "WebSockets",
+      "AWS",
+      "Docker",
+      "API Architecture"
+    ]
+  },
+  "profile": {
+    "picture": "/profile.jpg",
+    "name": "Aadarsh Shrivastava",
+    "title": "Backend Engineer",
+    "titleShort": "Backend Engineer",
+    "company": "Deuex Solutions",
+    "location": "Mumbai, India",
+    "email": "aadarshkhurai@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/aadarsh-shrivastava-240393180/",
+    "github": "https://github.com/Aadarsh-shrivastava",
+    "bio": "Backend engineer specializing in distributed systems, real-time architectures, and performance optimization. Experienced in designing scalable APIs and event-driven systems with strong end-to-end ownership of production-grade services.",
+    "resume": "/Aadarsh_Shrivastava_CV.pdf",
+    "phone": "+91 90986 76771"
+  },
+  "resumes": [
+    {
+      "id": "backend",
+      "title": "Backend Engineer",
+      "description": "Designing distributed systems, real-time architectures, and high-performance backends with strong focus on reliability, latency, and end-to-end ownership.",
+      "filename": "Aadarsh_Shrivastava_CV.pdf",
+      "skills": [
+        {
+          "name": "Go",
+          "category": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "category": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "category": "Languages"
+        },
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "Java",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        },
+        {
+          "name": "Node.js",
+          "category": "Backend"
+        },
+        {
+          "name": "Express",
+          "category": "Backend"
+        },
+        {
+          "name": "FastAPI",
+          "category": "Backend"
+        },
+        {
+          "name": "REST APIs",
+          "category": "Backend"
+        },
+        {
+          "name": "WebSockets",
+          "category": "Backend"
+        },
+        {
+          "name": "React",
+          "category": "Frontend"
+        },
+        {
+          "name": "React Native",
+          "category": "Frontend"
+        },
+        {
+          "name": "Next.js",
+          "category": "Frontend"
+        },
+        {
+          "name": "PostgreSQL",
+          "category": "Databases"
+        },
+        {
+          "name": "Redis",
+          "category": "Databases"
+        },
+        {
+          "name": "MongoDB",
+          "category": "Databases"
+        },
+        {
+          "name": "MySQL",
+          "category": "Databases"
+        },
+        {
+          "name": "Distributed Systems",
+          "category": "Systems"
+        },
+        {
+          "name": "Event-Driven Architecture",
+          "category": "Systems"
+        },
+        {
+          "name": "Caching",
+          "category": "Systems"
+        },
+        {
+          "name": "CI/CD",
+          "category": "Systems"
+        },
+        {
+          "name": "OpenTelemetry",
+          "category": "Systems"
+        },
+        {
+          "name": "AWS",
+          "category": "Cloud"
+        },
+        {
+          "name": "Docker",
+          "category": "Cloud"
+        },
+        {
+          "name": "Grafana",
+          "category": "Cloud"
+        }
+      ]
+    }
+  ],
+  "experiences": [
+    {
+      "id": "deuex",
+      "goesInResume": true,
+      "title": "Application Developer",
+      "company": "Deuex Solutions",
+      "location": "Mumbai, India",
+      "period": "Mar 2025 - Present",
+      "type": "Full-time",
+      "technologies": [
+        "TypeScript",
+        "Node.js",
+        "PostgreSQL",
+        "Redis",
+        "WebSockets",
+        "Docker",
+        "AWS",
+        "OpenTelemetry",
+        "Grafana"
+      ],
+      "achievements": [
+        "Designed and owned scalable backend systems supporting 10K+ concurrent users and improving system reliability to 99.9% uptime.",
+        "Engineered a real-time commentary system using WebSockets, reducing API calls by 60% and lowering latency by 40%.",
+        "Re-architected scoring and leaderboard systems, cutting database load by 50% and improving response times by 3x.",
+        "Optimized performance by eliminating redundant queries and memory leaks, reducing CPU usage by 30% and improving throughput.",
+        "Implemented Redis Pub/Sub and caching strategies, improving response times by 35% and ensuring real-time consistency."
+      ],
+      "projects": [
+        {
+          "name": "Real-Time Commentary System",
+          "description": "Low-latency, WebSocket-based commentary platform delivering live updates to a large concurrent audience.",
+          "technologies": [
+            "TypeScript",
+            "Node.js",
+            "WebSockets",
+            "Redis"
+          ],
+          "impact": "Reduced API calls by 60% and lowered end-to-end latency by 40% under peak load.",
+          "highlights": [
+            "WebSocket fan-out with Redis Pub/Sub for horizontal scaling",
+            "Backpressure-aware broadcasting to thousands of concurrent clients",
+            "Stable 99.9% uptime under 10K+ concurrent users"
+          ]
+        },
+        {
+          "name": "Scoring & Leaderboard Re-Architecture",
+          "description": "Redesigned scoring and leaderboard pipelines to reduce database pressure and improve responsiveness.",
+          "technologies": [
+            "Node.js",
+            "PostgreSQL",
+            "Redis",
+            "OpenTelemetry"
+          ],
+          "impact": "Cut database load by 50% and improved response times by 3x.",
+          "highlights": [
+            "Cache-first leaderboard reads with Redis sorted sets",
+            "Query optimization and elimination of N+1 access patterns",
+            "Observability via OpenTelemetry and Grafana dashboards"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nagarro",
+      "goesInResume": true,
+      "title": "Associate Developer",
+      "company": "Nagarro",
+      "location": "Gurugram, India",
+      "period": "Mar 2023 - Feb 2025",
+      "type": "Full-time",
+      "technologies": [
+        "TypeScript",
+        "React",
+        "React Native",
+        "Node.js",
+        "MongoDB",
+        "PostgreSQL"
+      ],
+      "achievements": [
+        "Created a large-scale BFSI mobile application used by 50K+ users, ensuring reliable frontend-backend integrations and seamless user flows.",
+        "Architected reusable multi-mode React and React Native components, reducing code duplication by 40% and accelerating feature development.",
+        "Boosted API design and data flow, improving response times by 25% and contributing to backend fixes and database design across MongoDB and PostgreSQL.",
+        "Enhanced performance and scalability with caching, state management, and multi-language support, reducing redundant API calls by 35% and expanding accessibility."
+      ],
+      "projects": [
+        {
+          "name": "BFSI Mobile Application",
+          "description": "Large-scale banking and financial services mobile app with reliable frontend-backend integrations and a polished user experience.",
+          "technologies": [
+            "React Native",
+            "TypeScript",
+            "Node.js",
+            "MongoDB"
+          ],
+          "impact": "Served 50K+ users with stable, secure, and accessible workflows across regions.",
+          "highlights": [
+            "Multi-mode reusable component library cutting duplication by 40%",
+            "Multi-language support expanding accessibility",
+            "API and data-flow improvements boosting response times by 25%"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "react-intern-2022",
+      "goesInResume": true,
+      "title": "React Development Intern",
+      "company": "Software Internship",
+      "location": "Remote",
+      "period": "Jul 2022 - Oct 2022",
+      "type": "Internship",
+      "technologies": [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Make.com"
+      ],
+      "achievements": [
+        "Enhanced News Portal: improved user experience by adding functionalities and enhancements using React.",
+        "Implemented task management and reminder capabilities for the ERP system.",
+        "Optimized automation pipeline: fixed and enhanced existing Make.com workflows for automated email delivery."
+      ],
+      "projects": [
+        {
+          "name": "News Portal",
+          "description": "Feature work and UX improvements on a news portal using React.",
+          "technologies": [
+            "React",
+            "Node.js",
+            "MongoDB"
+          ],
+          "impact": "Clearer flows and richer functionality for readers and editors.",
+          "highlights": [
+            "New UI components and interactions in React",
+            "Backend integration with Node.js, Express, and MongoDB"
+          ]
+        },
+        {
+          "name": "ERP Task Management",
+          "description": "Task management and reminder features integrated into an existing ERP system.",
+          "technologies": [
+            "React",
+            "Node.js",
+            "Express",
+            "MongoDB"
+          ],
+          "impact": "Users could track work and receive reminders inside the ERP.",
+          "highlights": [
+            "Task creation, assignment, and status tracking",
+            "Reminder flows wired through the Node/Express API layer"
+          ]
+        },
+        {
+          "name": "Make.com Automation",
+          "description": "Maintenance and enhancement of automated email workflows on Make.com.",
+          "technologies": [
+            "Make.com"
+          ],
+          "impact": "More reliable automated emails and a healthier automation pipeline.",
+          "highlights": [
+            "Debugged and hardened existing scenarios",
+            "Improved reliability of outbound automated emails"
+          ]
+        }
+      ]
+    }
+  ],
+  "personalProjects": [
+    {
+      "title": "SNAP DB",
+      "description": "Jan 2024 — React and MongoDB–based Excel-like editable sheet for hierarchical data. Users design and manage sheets via a tree interface, with bidirectional calculations so child row edits update parents dynamically. Python FastAPI backend with an integrated React frontend.",
+      "technologies": [
+        "React",
+        "JavaScript",
+        "MongoDB",
+        "FastAPI",
+        "Python"
+      ],
+      "goesInResume": true
+    },
+    {
+      "title": "Aceflow — Google Sheets Integration Platform",
+      "description": "Integration platform built with Node.js and Next.js (TypeScript) for accessing and managing Google Sheets. Google OAuth for permissions and SSO login lets users attach sheets and read/write data through REST APIs.",
+      "technologies": [
+        "Node.js",
+        "Express",
+        "Next.js",
+        "TypeScript",
+        "MongoDB",
+        "REST APIs",
+        "Google SSO"
+      ],
+      "goesInResume": true
+    },
+    {
+      "title": "Scalable Notification System",
+      "description": "Distributed notification system using Redis-based queues and worker services for asynchronous processing, with rate limiting, retry logic, dead-letter queues, and idempotent processing for reliability under failures.",
+      "technologies": [
+        "Go",
+        "Redis",
+        "PostgreSQL",
+        "Docker"
+      ],
+      "github": "https://github.com/aadarshkhurai/notification-system",
+      "goesInResume": true
+    },
+    {
+      "title": "Real-Time Event Processing System",
+      "description": "High-throughput event-driven system for real-time data ingestion and processing, built around a Redis Streams event bus with partitioned consumers, stateful aggregation, and WebSocket broadcasting for low-latency updates.",
+      "technologies": [
+        "Node.js",
+        "Redis Streams",
+        "PostgreSQL",
+        "WebSockets"
+      ],
+      "github": "https://github.com/aadarshkhurai/event-processor",
+      "goesInResume": true
+    }
+  ]
+}

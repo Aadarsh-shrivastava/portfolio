@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-accent: #D4AF37;
+  --color-accent-light: #E6C65C;
+  --color-accent-muted: #9A7F28;
+  --color-accent-foreground: #0E0E0E;
+}
+
+:root {
+  --accent: #D4AF37;
+  --background: #0e0e0e;
+  --foreground: #e7e5e5;
+}
+
+* {
+  selection:bg-accent;
+  selection:text-black;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  background-color: #0e0e0e;
+  color: #e7e5e5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  overflow-x: clip;
+}
+
+/* Prevent long tokens from forcing horizontal scroll on mobile */
+p, h1, h2, h3, h4, h5, h6, span, a, li {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.blueprint-grid {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.subgrid {
+  background-size: 10px 10px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+}
