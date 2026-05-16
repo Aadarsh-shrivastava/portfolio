@@ -71,8 +71,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <GoogleAnalytics gaId="G-XHBC2B7TVE" />
+      <GoogleAnalytics gaId="G-LH4QWPQVFL" />
       <body className={jbm.className}>{children}</body>
     </html>
-  )
+  );
 }

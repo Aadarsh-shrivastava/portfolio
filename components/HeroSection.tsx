@@ -17,7 +17,10 @@ export default function HeroSection({ profile }: HeroSectionProps) {
   const [firstName, lastName] = profile.name.split(" ")
 
   return (
-    <section className="relative pt-28 sm:pt-32 pb-36 sm:pb-48 px-4 sm:px-8 md:px-12 max-w-screen-2xl mx-auto overflow-hidden" id="about">
+    <section
+      className="relative pt-28 sm:pt-32 pb-36 sm:pb-48 px-4 sm:px-8 md:px-12 max-w-screen-2xl mx-auto overflow-hidden"
+      id="about"
+    >
       <div className="grid grid-cols-12 gap-y-16 items-start relative z-10">
         {/* Main Header Group */}
         <div className="col-span-12 lg:col-span-8 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
@@ -31,7 +34,9 @@ export default function HeroSection({ profile }: HeroSectionProps) {
             {lastName}
           </h1>
           <div className="max-w-2xl mx-auto lg:mx-0">
-            <p className="text-white/60 text-base sm:text-lg md:text-xl font-light leading-relaxed mb-8 sm:mb-10">{profile.bio}</p>
+            <p className="text-white/60 text-base sm:text-lg md:text-xl font-light leading-relaxed mb-8 sm:mb-10">
+              {profile.bio}
+            </p>
 
             {/* Actions / Links */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-white/10 pt-8">
@@ -40,7 +45,9 @@ export default function HeroSection({ profile }: HeroSectionProps) {
                 className="flex flex-col items-center gap-3 p-4 hover:bg-white/5 transition-colors group"
               >
                 <Mail className="w-5 h-5 text-accent/60 group-hover:text-accent transition-colors" />
-                <span className="text-[8px] text-white/50 text-center">Email</span>
+                <span className="text-[8px] text-white/50 text-center">
+                  Email
+                </span>
               </a>
               <a
                 href={profile.github}
@@ -49,7 +56,9 @@ export default function HeroSection({ profile }: HeroSectionProps) {
                 className="flex flex-col items-center gap-3 p-4 hover:bg-white/5 transition-colors group"
               >
                 <Github className="w-5 h-5 text-accent/60 group-hover:text-accent transition-colors" />
-                <span className="text-[8px] text-white/50 text-center">GitHub</span>
+                <span className="text-[8px] text-white/50 text-center">
+                  GitHub
+                </span>
               </a>
               <a
                 href={profile.linkedin}
@@ -58,7 +67,9 @@ export default function HeroSection({ profile }: HeroSectionProps) {
                 className="flex flex-col items-center gap-3 p-4 hover:bg-white/5 transition-colors group"
               >
                 <Linkedin className="w-5 h-5 text-accent/60 group-hover:text-accent transition-colors" />
-                <span className="text-[8px] text-white/50 text-center">LinkedIn</span>
+                <span className="text-[8px] text-white/50 text-center">
+                  LinkedIn
+                </span>
               </a>
               <a
                 href={profile.resume}
@@ -66,7 +77,9 @@ export default function HeroSection({ profile }: HeroSectionProps) {
                 className="flex flex-col items-center gap-3 p-4 hover:bg-white/5 transition-colors group"
               >
                 <Download className="w-5 h-5 text-accent/60 group-hover:text-accent transition-colors" />
-                <span className="text-[8px] text-white/50 text-center">Resume</span>
+                <span className="text-[8px] text-white/50 text-center">
+                  Resume
+                </span>
               </a>
             </div>
           </div>
@@ -93,10 +106,12 @@ export default function HeroSection({ profile }: HeroSectionProps) {
             <img
               alt="Professional Headshot"
               className="w-full h-full object-cover"
-              src="/profile.jpg"
+              src={"/profile.webp"}
             />
             <div className="absolute -bottom-12 left-0 w-full flex justify-between items-center px-2">
-              <span className="text-[8px] text-white/30 tracking-widest uppercase">Status_Active</span>
+              <span className="text-[8px] text-white/30 tracking-widest uppercase">
+                Status_Active
+              </span>
               <div className="flex gap-2">
                 <div className="w-2 h-2 rounded-full bg-accent/60"></div>
                 <div className="w-2 h-2 rounded-full bg-accent/40"></div>
@@ -115,5 +130,5 @@ export default function HeroSection({ profile }: HeroSectionProps) {
         </span>
       </div>
     </section>
-  )
+  );
 }
