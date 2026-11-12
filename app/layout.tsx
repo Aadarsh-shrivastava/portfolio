@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { JetBrains_Mono } from 'next/font/google'
 import '@/styles/globals.css'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
@@ -59,11 +58,6 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-const jbm = JetBrains_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-})
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -72,7 +66,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <GoogleAnalytics gaId="G-LH4QWPQVFL" />
-      <body className={jbm.className}>{children}</body>
+      <body className="font-text antialiased">
+        {children}
+      </body>
     </html>
   );
 }

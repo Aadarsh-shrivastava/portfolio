@@ -343,6 +343,348 @@
       ]
     }
   ],
+  // Shipped applications. Placeholder entries for layout work: no real names,
+  // no invented store URLs. A missing "playUrl" simply hides that CTA.
+  "apps": [
+    {
+      "slug": "placeholder-app-one",
+      "name": "Placeholder App One",
+      "tagline": "A short product statement goes here.",
+      "description": "Placeholder description. Replace with what the app does, who it is for, and why it exists.",
+      "platform": "Android",
+      "status": "In development",
+      "featured": true,
+      "technologies": [
+        "React Native",
+        "TypeScript",
+        "Node.js"
+      ],
+      "highlights": [
+        "Placeholder value statement about the product.",
+        "Placeholder note about how it is built."
+      ]
+    },
+    {
+      "slug": "placeholder-app-two",
+      "name": "Placeholder App Two",
+      "tagline": "A second short product statement.",
+      "description": "Placeholder description for the second application.",
+      "platform": "Android",
+      "status": "Coming soon",
+      "technologies": [
+        "Kotlin",
+        "PostgreSQL"
+      ]
+    },
+    {
+      "slug": "placeholder-app-three",
+      "name": "Placeholder App Three",
+      "tagline": "A third short product statement.",
+      "description": "Placeholder description for the third application.",
+      "platform": "Web",
+      "status": "Archived",
+      "technologies": [
+        "Next.js",
+        "Redis"
+      ]
+    }
+    {
+      "slug": "placeholder-app-three",
+      "name": "Placeholder App Three",
+      "tagline": "A third short product statement.",
+      "description": "Placeholder description for the third application.",
+      "platform": "Web",
+      "status": "Archived",
+      "technologies": [
+        "Next.js",
+        "Redis"
+      ]
+    }
+  ],
+  // Activity page content. Numbers are intentionally absent until the real
+  // sources are connected — the UI renders a dash rather than a made-up figure.
+  "activity": {
+    "github": {
+      // Contribution squares are a deterministic placeholder pattern, not data.
+      "placeholderContributions": true,
+      "contributionsLabel": "Contribution activity",
+      "totalContributions": null
+    },
+    "leetcode": {
+      "username": null,
+      "totalSolved": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "currentStreak": null,
+      "maxStreak": null
+    },
+    "learning": [
+      {
+        "topic": "Distributed systems",
+        "description": "Consensus, partitioning, and the failure modes that only show up at scale.",
+        "stage": "Going deeper"
+      },
+      {
+        "topic": "Systems programming",
+        "description": "Getting closer to the machine to understand what the runtime hides.",
+        "stage": "Exploring"
+      },
+      {
+        "topic": "Product design",
+        "description": "Reading interfaces as decisions rather than decoration.",
+        "stage": "Practising"
+      },
+      {
+        "topic": "Open source",
+        "description": "Working in public and extracting small tools from day-to-day work.",
+        "stage": "Ongoing"
+      }
+    ],
+    "posts": [
+      {
+        "platform": "X",
+        "date": "2026-02-18",
+        "text": "Building a faster developer workflow — tighter feedback loops beat bigger roadmaps most weeks.",
+        "url": "https://x.com/"
+      },
+      {
+        "platform": "LinkedIn",
+        "date": "2026-02-04",
+        "text": "Shipped a small internal tool that cut deploy verification from minutes to seconds. Boring infrastructure, big daily win.",
+        "url": "https://linkedin.com/"
+      },
+      {
+        "platform": "Threads",
+        "date": "2026-01-22",
+        "text": "Hot take: most “scale” problems are coordination problems wearing a performance costume.",
+        "url": "https://threads.net/"
+      }
+    ]
+  },
+  // Shared narrative content for /about and the homepage principles section.
+  // Placeholder copy — replace with your own wording.
+  "about": {
+    "principles": [
+      {
+        "title": "Keep it simple",
+        "body": "Complexity belongs in the system, not in the interface."
+      },
+      {
+        "title": "Ship and learn",
+        "body": "A working product teaches more than a perfect plan."
+      },
+      {
+        "title": "Sweat the details",
+        "body": "Small interactions create the feeling of quality."
+      },
+      {
+        "title": "Build for humans",
+        "body": "Technology matters when it solves a real problem."
+      }
+    ]
+  },
+  // Homepage content. Placeholder copy — replace with real content.
+  // Testimonials are intentionally absent: the section renders nothing until
+  // real quotes exist.
+  "home": {
+    "capabilities": [
+      {
+        "title": "Backend Engineering",
+        "description": "Designing APIs and services that stay predictable under load.",
+        "href": "/experience"
+      },
+      {
+        "title": "Distributed Systems",
+        "description": "Event-driven architectures, queues, and real-time data paths.",
+        "href": "/projects"
+      },
+      {
+        "title": "Performance",
+        "description": "Finding the bottleneck, then removing it rather than hiding it.",
+        "href": "/stack"
+      },
+      {
+        "title": "Product Thinking",
+        "description": "Connecting system design to the problem it is supposed to solve.",
+        "href": "/about"
+      }
+    ],
+    "testimonials": []
+  },
+  // Dummy blog content for layout work. Replace with real posts.
+  // A post needs `article.sections` to get its own /blog/<slug> page.
+  "blogs": [
+    {
+      "slug": "designing-apis-that-age-well",
+      "title": "Designing APIs that age well",
+      "description": "What I look for when an endpoint has to survive three years of product changes.",
+      "date": "2026-09-18",
+      "url": "/blog/designing-apis-that-age-well",
+      "tags": [
+        "APIs",
+        "Architecture"
+      ],
+      "article": {
+        "readingTime": "8 min read",
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction",
+            "body": [
+              "Placeholder introduction. An API is a promise about shape, and the cost of that promise shows up long after the first release.",
+              "This post walks through the questions worth asking before an endpoint ships, and the ones that are cheaper to answer later."
+            ]
+          },
+          {
+            "id": "the-problem",
+            "heading": "The problem",
+            "body": [
+              "Placeholder body copy. Most interfaces do not break loudly. They accumulate special cases until no one can describe what a field means."
+            ]
+          },
+          {
+            "id": "my-approach",
+            "heading": "My approach",
+            "body": [
+              "Placeholder body copy. Start from the read path, name things after the domain rather than the storage, and keep write operations explicit."
+            ]
+          },
+          {
+            "id": "trade-offs",
+            "heading": "Trade-offs",
+            "body": [
+              "Placeholder body copy. Every consistency guarantee is paid for somewhere, usually in latency or in operational complexity."
+            ]
+          },
+          {
+            "id": "key-learnings",
+            "heading": "Key learnings",
+            "body": [
+              "Placeholder closing copy. The interfaces that lasted were the ones that stayed small enough to hold in your head."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "slug": "the-cost-of-real-time",
+      "title": "The cost of real-time",
+      "description": "Streaming updates look simple in a demo. Here is what they add to a system in production.",
+      "date": "2026-08-02",
+      "url": "/blog/the-cost-of-real-time",
+      "tags": [
+        "WebSockets",
+        "Systems"
+      ],
+      "article": {
+        "readingTime": "6 min read",
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction",
+            "body": [
+              "Placeholder introduction. Real-time is a product decision before it is a technical one."
+            ]
+          },
+          {
+            "id": "what-changes",
+            "heading": "What changes",
+            "body": [
+              "Placeholder body copy. Connection state becomes something you own, and every deploy has to answer for it."
+            ]
+          },
+          {
+            "id": "what-it-costs",
+            "heading": "What it costs",
+            "body": [
+              "Placeholder body copy. Fan-out, backpressure, and reconnection logic are the parts that rarely make it into the estimate."
+            ]
+          },
+          {
+            "id": "key-learnings",
+            "heading": "Key learnings",
+            "body": [
+              "Placeholder closing copy. Push when the user is waiting; poll when they are not."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "slug": "reading-a-slow-query",
+      "title": "Reading a slow query",
+      "description": "A practical walk through the moment a dashboard turns red and the plan looks fine.",
+      "date": "2026-06-11",
+      "url": "/blog/reading-a-slow-query",
+      "tags": [
+        "PostgreSQL",
+        "Performance"
+      ],
+      "article": {
+        "readingTime": "7 min read",
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction",
+            "body": [
+              "Placeholder introduction. Slow is a symptom, and the first job is deciding which layer is lying to you."
+            ]
+          },
+          {
+            "id": "where-to-look",
+            "heading": "Where to look first",
+            "body": [
+              "Placeholder body copy. Measure before changing anything, and keep the measurement next to the change."
+            ]
+          },
+          {
+            "id": "key-learnings",
+            "heading": "Key learnings",
+            "body": [
+              "Placeholder closing copy. The fix is usually smaller than the investigation that found it."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "slug": "notes-on-shipping-small",
+      "title": "Notes on shipping small",
+      "description": "Why the smallest useful version keeps turning out to be the right one.",
+      "date": "2026-04-27",
+      "url": "/blog/notes-on-shipping-small",
+      "tags": [
+        "Process"
+      ],
+      "article": {
+        "readingTime": "5 min read",
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction",
+            "body": [
+              "Placeholder introduction. Scope is the only variable that is genuinely under your control."
+            ]
+          },
+          {
+            "id": "in-practice",
+            "heading": "In practice",
+            "body": [
+              "Placeholder body copy. Cut until the thing can be explained in a sentence, then build that."
+            ]
+          },
+          {
+            "id": "key-learnings",
+            "heading": "Key learnings",
+            "body": [
+              "Placeholder closing copy. Shipping is a habit, not an event."
+            ]
+          }
+        ]
+      }
+    }
+  ],
   "personalProjects": [
     {
       "title": "SNAP DB",
@@ -354,9 +696,50 @@
         "FastAPI",
         "Python"
       ],
-      "goesInResume": true
+      "goesInResume": true,
+      "featured": true,
+      // Adding a "caseStudy" block to any project creates /projects/<slug>.
+      // Content below is placeholder; every field is optional.
+      "slug": "snap-db",
+      "role": "Full-stack engineer",
+      "categories": [
+        "Full Stack",
+        "Product"
+      ],
+      "caseStudy": {
+        "tagline": "Placeholder tagline for the SNAP DB case study.",
+        "timeline": "2024",
+        "overview": [
+          "Placeholder overview paragraph."
+        ],
+        "problem": [
+          "Placeholder problem paragraph."
+        ],
+        "approach": [
+          "Placeholder approach paragraph."
+        ],
+        "engineering": [
+          "Placeholder engineering paragraph."
+        ],
+        "keyDecisions": [
+          {
+            "title": "Placeholder decision",
+            "body": "Placeholder rationale."
+          }
+        ],
+        "results": [
+          {
+            "label": "Placeholder metric",
+            "value": "—"
+          }
+        ],
+        "learnings": [
+          "Placeholder learning."
+        ]
+      }
     },
     {
+      "featured": true,
       "title": "Aceflow — Google Sheets Integration Platform",
       "description": "Integration platform built with Node.js and Next.js (TypeScript) for accessing and managing Google Sheets. Google OAuth for permissions and SSO login lets users attach sheets and read/write data through REST APIs.",
       "technologies": [
@@ -368,7 +751,44 @@
         "REST APIs",
         "Google SSO"
       ],
-      "goesInResume": true
+      "goesInResume": true,
+      "slug": "aceflow",
+      "role": "Full-stack engineer",
+      "categories": [
+        "Full Stack",
+        "Integrations"
+      ],
+      "caseStudy": {
+        "tagline": "Placeholder tagline for the Aceflow case study.",
+        "timeline": "2024",
+        "overview": [
+          "Placeholder overview. Replace with the shape of the system and who it was built for."
+        ],
+        "problem": [
+          "Placeholder problem statement. What was failing, and what did that cost?"
+        ],
+        "approach": [
+          "Placeholder approach. The route taken, and the options that were set aside."
+        ],
+        "engineering": [
+          "Placeholder engineering notes. Data model, boundaries, and the parts that needed care."
+        ],
+        "keyDecisions": [
+          {
+            "title": "Placeholder decision",
+            "body": "Placeholder rationale for the call that shaped the rest of the build."
+          }
+        ],
+        "results": [
+          {
+            "label": "Placeholder metric",
+            "value": "—"
+          }
+        ],
+        "learnings": [
+          "Placeholder learning. What would be done differently next time."
+        ]
+      }
     },
     {
       "title": "Scalable Notification System",
@@ -380,7 +800,44 @@
         "Docker"
       ],
       "github": "https://github.com/aadarshkhurai/notification-system",
-      "goesInResume": true
+      "goesInResume": true,
+      "slug": "scalable-notification-system",
+      "role": "Backend engineer",
+      "categories": [
+        "Backend",
+        "Distributed Systems"
+      ],
+      "caseStudy": {
+        "tagline": "Placeholder tagline for the notification system case study.",
+        "timeline": "2024",
+        "overview": [
+          "Placeholder overview. Replace with the shape of the system and who it was built for."
+        ],
+        "problem": [
+          "Placeholder problem statement. What was failing, and what did that cost?"
+        ],
+        "approach": [
+          "Placeholder approach. The route taken, and the options that were set aside."
+        ],
+        "engineering": [
+          "Placeholder engineering notes. Data model, boundaries, and the parts that needed care."
+        ],
+        "keyDecisions": [
+          {
+            "title": "Placeholder decision",
+            "body": "Placeholder rationale for the call that shaped the rest of the build."
+          }
+        ],
+        "results": [
+          {
+            "label": "Placeholder metric",
+            "value": "—"
+          }
+        ],
+        "learnings": [
+          "Placeholder learning. What would be done differently next time."
+        ]
+      }
     },
     {
       "title": "Real-Time Event Processing System",
@@ -392,7 +849,44 @@
         "WebSockets"
       ],
       "github": "https://github.com/aadarshkhurai/event-processor",
-      "goesInResume": true
+      "goesInResume": true,
+      "slug": "real-time-event-processing",
+      "role": "Backend engineer",
+      "categories": [
+        "Backend",
+        "Real-Time"
+      ],
+      "caseStudy": {
+        "tagline": "Placeholder tagline for the event processing case study.",
+        "timeline": "2025",
+        "overview": [
+          "Placeholder overview. Replace with the shape of the system and who it was built for."
+        ],
+        "problem": [
+          "Placeholder problem statement. What was failing, and what did that cost?"
+        ],
+        "approach": [
+          "Placeholder approach. The route taken, and the options that were set aside."
+        ],
+        "engineering": [
+          "Placeholder engineering notes. Data model, boundaries, and the parts that needed care."
+        ],
+        "keyDecisions": [
+          {
+            "title": "Placeholder decision",
+            "body": "Placeholder rationale for the call that shaped the rest of the build."
+          }
+        ],
+        "results": [
+          {
+            "label": "Placeholder metric",
+            "value": "—"
+          }
+        ],
+        "learnings": [
+          "Placeholder learning. What would be done differently next time."
+        ]
+      }
     }
   ]
 }
