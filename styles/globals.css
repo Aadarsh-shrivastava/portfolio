@@ -1,48 +1,600 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* ============================================================
+   SINGLE SOURCE OF TRUTH FOR THE VISUAL THEME
+   Tailwind 4 is CSS-first: every token lives in @theme below and
+   is mirrored (read-only) in styles/theme.ts for use from TS.
+   ============================================================ */
+
 @theme {
-  --color-accent: #D4AF37;
-  --color-accent-light: #E6C65C;
-  --color-accent-muted: #9A7F28;
-  --color-accent-foreground: #0E0E0E;
+  /* ---------- Typeface: Apple system stack, nothing self-hosted ---------- */
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-text: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Legacy aliases kept so existing font-headline / font-body classes resolve. */
+  --font-headline: var(--font-display);
+  --font-body: var(--font-text);
+
+  /* ---------- Palette primitives (near-black, cool neutrals) ---------- */
+  --color-background: #0a0a0b;
+  --color-background-subtle: #0e0f11;
+  --color-surface: #121316;
+  --color-surface-elevated: #17181c;
+  --color-surface-hover: #1c1d22;
+
+  --color-text-primary: #f4f5f7;
+  --color-text-secondary: #a2a6ad;
+  /* 4.9:1 on --color-background, so small muted text still passes WCAG AA. */
+  --color-text-muted: #7a7e86;
+  /* Disabled text is intentionally below AA; only ever used on inert controls. */
+  --color-text-disabled: #52555c;
+
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-default: rgba(255, 255, 255, 0.1);
+  --color-border-strong: rgba(255, 255, 255, 0.16);
+
+  /* Restrained cool accent. Swap these two values to re-hue the whole site. */
+  --color-accent: #7f8cf8;
+  --color-accent-strong: #9aa4fb;
+  --color-accent-subtle: rgba(127, 140, 248, 0.12);
+  --color-accent-foreground: #0a0a0b;
+
+  /* ---------- Legacy color aliases (deprecated, mapped to the above) ----------
+     Existing components still use bg-surface-low / text-on-surface-variant etc.
+     They point at the new tokens so there is only one real palette. */
+  --color-foreground: var(--color-text-primary);
+  --color-surface-low: var(--color-background-subtle);
+  --color-surface-high: var(--color-surface-elevated);
+  --color-surface-highest: var(--color-surface-hover);
+  --color-on-surface: var(--color-text-primary);
+  --color-on-surface-variant: var(--color-text-secondary);
+  --color-border: var(--color-border-default);
+  --color-muted: var(--color-text-muted);
+  --color-accent-light: var(--color-accent-strong);
+
+  /* ---------- shadcn/ui base tokens (components/ui/*) ---------- */
+  --color-card: var(--color-surface);
+  --color-card-foreground: var(--color-text-primary);
+  --color-popover: var(--color-surface-elevated);
+  --color-popover-foreground: var(--color-text-primary);
+  --color-primary: var(--color-text-primary);
+  --color-primary-foreground: var(--color-background);
+  --color-secondary: var(--color-surface-elevated);
+  --color-secondary-foreground: var(--color-text-primary);
+  --color-destructive: #d9534f;
+  --color-destructive-foreground: var(--color-text-primary);
+  --color-input: rgba(255, 255, 255, 0.1);
+  --color-ring: var(--color-accent);
+
+  /* ---------- Radius: restrained, slightly architectural ---------- */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* ---------- Container + gutters ---------- */
+  --container-page: 1440px;
+  --container-prose: 48rem;
+  --gutter-mobile: 1.25rem;
+  --gutter-tablet: 2rem;
+  --gutter-desktop: 2.5rem;
+
+  /* How far the page-level black overlay reaches in from each side. */
+  --page-edge-fade: 18vw;
+
+  /* Height of the fixed navigation; pages offset their first section by it. */
+  --nav-height: 3.75rem;
+
+  /* ---------- Spacing scale (px names, rem values) ---------- */
+  --space-4: 0.25rem;
+  --space-8: 0.5rem;
+  --space-12: 0.75rem;
+  --space-16: 1rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-48: 3rem;
+  --space-64: 4rem;
+  --space-80: 5rem;
+  --space-96: 6rem;
+  --space-128: 8rem;
+  --space-160: 10rem;
+
+  /* Vertical rhythm for page sections (mobile / desktop pairs) */
+  --section-y-tight: var(--space-48);
+  --section-y-tight-lg: var(--space-80);
+  --section-y: var(--space-80);
+  --section-y-lg: var(--space-128);
+  --section-y-loose: var(--space-96);
+  --section-y-loose-lg: var(--space-160);
+
+  /* ---------- Motion ---------- */
+  --duration-fast: 120ms;
+  --duration-normal: 220ms;
+  --duration-slow: 420ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ---------- Shadows: tonal, never obvious ---------- */
+  --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-raised: 0 8px 24px -12px rgba(0, 0, 0, 0.7);
+  --shadow-overlay: 0 24px 64px -24px rgba(0, 0, 0, 0.85);
+
+  /* ---------- Glow: felt, not noticed ---------- */
+  --glow-color: rgba(127, 140, 248, 0.16);
+  --glow-subtle: 0 0 80px 0 rgba(127, 140, 248, 0.06);
+  --glow-default: 0 0 140px 0 rgba(127, 140, 248, 0.1);
+  --glow-strong: 0 0 220px 0 rgba(127, 140, 248, 0.16);
 }
 
-:root {
-  --accent: #D4AF37;
-  --background: #0e0e0e;
-  --foreground: #e7e5e5;
-}
-
-* {
-  selection:bg-accent;
-  selection:text-black;
-}
+/* ============================================================
+   BASE
+   ============================================================ */
 
 html {
   scroll-behavior: smooth;
   overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background-color: #0e0e0e;
-  color: #e7e5e5;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-text);
+  font-size: 1rem;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-synthesis-weight: none;
   overflow-x: clip;
 }
 
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-accent-foreground);
+}
+
 /* Prevent long tokens from forcing horizontal scroll on mobile */
-p, h1, h2, h3, h4, h5, h6, span, a, li {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+a,
+li {
   overflow-wrap: anywhere;
   word-break: break-word;
 }
 
+/* Single global focus treatment: visible, calm, keyboard-only */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   TYPOGRAPHY SCALE
+   Fluid between the mobile and desktop targets, so there is one
+   class per level rather than a breakpoint pile-up per component.
+   ============================================================ */
+
+@layer components {
+  .type-display {
+    font-family: var(--font-display);
+    font-size: clamp(2.625rem, 1.6rem + 4.6vw, 4.75rem);
+    font-weight: 600;
+    line-height: 1.03;
+    letter-spacing: -0.03em;
+  }
+
+  .type-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 1.9rem + 3vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1.06;
+    letter-spacing: -0.028em;
+  }
+
+  .type-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 1.6rem + 2vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.022em;
+  }
+
+  .type-h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.375rem, 1.2rem + 0.9vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.016em;
+  }
+
+  .type-body-lg {
+    font-family: var(--font-text);
+    font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+
+  .type-body {
+    font-family: var(--font-text);
+    font-size: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: -0.005em;
+  }
+
+  .type-small {
+    font-family: var(--font-text);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.55;
+    letter-spacing: 0;
+  }
+
+  .type-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .type-nav {
+    font-family: var(--font-text);
+    font-size: 0.875rem;
+    font-weight: 450;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+  }
+
+  .type-button {
+    font-family: var(--font-text);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.005em;
+  }
+}
+
+/* ============================================================
+   HORIZONTAL BLACK GRADIENT (edge fade) — core visual identity.
+   Content appears to emerge from darkness: black -> content -> black.
+   Mask-based, so it works over any media without a stacking overlay.
+   ============================================================ */
+
+@utility edge-fade {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+@utility edge-fade-soft {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+@utility edge-fade-strong {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 22%,
+    black 78%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to right, transparent 0%, black 22%, black 78%, transparent 100%);
+}
+
+/* Vertical companion, for media that should sink into the page bottom. */
+@utility edge-fade-bottom {
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 62%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, black 62%, transparent 100%);
+}
+
+/* Combined horizontal + vertical fade for large hero-scale visuals. */
+@utility edge-fade-frame {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 12%, black 62%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 12%, black 62%, transparent 100%);
+  mask-composite: intersect;
+}
+
+/* ============================================================
+   GLOW — low opacity, large blur, always behind content.
+   ============================================================ */
+
+@utility glow-subtle {
+  box-shadow: var(--glow-subtle);
+}
+
+@utility glow-default {
+  box-shadow: var(--glow-default);
+}
+
+@utility glow-strong {
+  box-shadow: var(--glow-strong);
+}
+
+@layer components {
+  /* Ambient light source placed behind a block of content. */
+  .glow-behind {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .glow-behind::before {
+    content: "";
+    position: absolute;
+    inset: -20% -10% auto -10%;
+    height: 70%;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(60% 60% at 50% 0%, var(--glow-color) 0%, transparent 70%);
+    filter: blur(60px);
+    opacity: 0.7;
+  }
+
+  .glow-behind-subtle::before {
+    opacity: 0.4;
+  }
+
+  .glow-behind-strong::before {
+    opacity: 1;
+  }
+}
+
+/* ============================================================
+   STRUCTURAL UTILITIES
+   ============================================================ */
+
+@layer components {
+  /* Global content container. Every section aligns to this grid. */
+  .container-page {
+    width: 100%;
+    max-width: var(--container-page);
+    margin-inline: auto;
+    padding-inline: var(--gutter-mobile);
+  }
+
+  .container-prose {
+    width: 100%;
+    max-width: var(--container-prose);
+    margin-inline: auto;
+    padding-inline: var(--gutter-mobile);
+  }
+
+  @media (min-width: 640px) {
+    .container-page,
+    .container-prose {
+      padding-inline: var(--gutter-tablet);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-page,
+    .container-prose {
+      padding-inline: var(--gutter-desktop);
+    }
+  }
+
+  /* Hairline rule used to separate sections without a visible border. */
+  .rule {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-border-default),
+      transparent
+    );
+  }
+
+  .transition-standard {
+    transition-duration: var(--duration-normal);
+    transition-timing-function: var(--ease-standard);
+    transition-property: color, background-color, border-color, opacity, box-shadow, transform;
+  }
+}
+
+/* ============================================================
+   GRADIENT BORDERS
+   A flat 1px border reads as a box. These fade around the shape so
+   the edge is brightest where light would fall and dissolves after.
+   ============================================================ */
+
+@layer components {
+  .border-gradient {
+    position: relative;
+  }
+
+  .border-gradient::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+    padding: 1px;
+    pointer-events: none;
+    background: linear-gradient(
+      150deg,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0.07) 28%,
+      rgba(255, 255, 255, 0.02) 55%,
+      rgba(255, 255, 255, 0) 80%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    transition: opacity var(--duration-normal) var(--ease-standard);
+  }
+
+  /* Brightens on hover when the element is (or sits inside) a group. */
+  .border-gradient-interactive::after {
+    opacity: 0.85;
+  }
+
+  .border-gradient-interactive:hover::after,
+  .group:hover .border-gradient-interactive::after {
+    opacity: 1;
+    background: linear-gradient(
+      150deg,
+      rgba(255, 255, 255, 0.26) 0%,
+      rgba(255, 255, 255, 0.1) 30%,
+      rgba(255, 255, 255, 0.03) 60%,
+      rgba(255, 255, 255, 0) 85%
+    );
+  }
+
+  /* Single-edge gradient hairlines: brightest at the start, dissolving after. */
+  .border-top-gradient {
+    border-top: 1px solid transparent;
+    border-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.14),
+        rgba(255, 255, 255, 0.04) 55%,
+        transparent
+      )
+      1;
+  }
+
+  .border-left-gradient {
+    border-left: 1px solid transparent;
+    border-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.14),
+        rgba(255, 255, 255, 0.04) 55%,
+        transparent
+      )
+      1;
+  }
+
+  /* Single gradient hairline, for dividers between rows. */
+  .divide-gradient > * + * {
+    border-top: 1px solid transparent;
+    border-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.12),
+        rgba(255, 255, 255, 0.04) 60%,
+        transparent
+      )
+      1;
+  }
+}
+
+/* ============================================================
+   PAGE EDGE OVERLAY
+   Sits above the whole page so every component dissolves into
+   black at the left and right margins.
+   ============================================================ */
+
+@layer components {
+  .page-edge-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    pointer-events: none;
+    background:
+      /* Left and right are the primary falloff: solid black at the edge,
+         holding well into the page before it clears. */
+      linear-gradient(
+        to right,
+        var(--color-background) 0%,
+        rgba(10, 10, 11, 0.96) 4%,
+        rgba(10, 10, 11, 0.72) 8%,
+        rgba(10, 10, 11, 0.34) 13%,
+        rgba(10, 10, 11, 0) var(--page-edge-fade)
+      ),
+      linear-gradient(
+        to left,
+        var(--color-background) 0%,
+        rgba(10, 10, 11, 0.96) 4%,
+        rgba(10, 10, 11, 0.72) 8%,
+        rgba(10, 10, 11, 0.34) 13%,
+        rgba(10, 10, 11, 0) var(--page-edge-fade)
+      ),
+      /* Top and bottom, lighter so the sides stay dominant. */
+      linear-gradient(
+        to bottom,
+        rgba(10, 10, 11, 0.55) 0%,
+        rgba(10, 10, 11, 0) 9%
+      ),
+      linear-gradient(
+        to top,
+        rgba(10, 10, 11, 0.55) 0%,
+        rgba(10, 10, 11, 0) 9%
+      ),
+      /* Corner vignettes tie the two axes together. */
+      radial-gradient(
+        60% 45% at 0% 0%,
+        rgba(10, 10, 11, 0.75) 0%,
+        rgba(10, 10, 11, 0) 70%
+      ),
+      radial-gradient(
+        60% 45% at 100% 0%,
+        rgba(10, 10, 11, 0.75) 0%,
+        rgba(10, 10, 11, 0) 70%
+      ),
+      radial-gradient(
+        60% 45% at 0% 100%,
+        rgba(10, 10, 11, 0.75) 0%,
+        rgba(10, 10, 11, 0) 70%
+      ),
+      radial-gradient(
+        60% 45% at 100% 100%,
+        rgba(10, 10, 11, 0.75) 0%,
+        rgba(10, 10, 11, 0) 70%
+      );
+  }
+}
+
+/* Decorative background grids, kept from the original setup. */
 .blueprint-grid {
   background-size: 40px 40px;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
 }
 
 .subgrid {

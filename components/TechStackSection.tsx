@@ -1,3 +1,6 @@
+import { cn } from "@/lib/utils"
+import { ui } from "@/styles/theme"
+
 interface Skill {
   name: string
   category: string
@@ -5,9 +8,10 @@ interface Skill {
 
 interface TechStackSectionProps {
   skills: Skill[]
+  standalone?: boolean
 }
 
-export default function TechStackSection({ skills }: TechStackSectionProps) {
+export default function TechStackSection({ skills, standalone = false }: TechStackSectionProps) {
   const groupedSkills = skills.reduce(
     (acc, skill) => {
       if (!acc[skill.category]) {
@@ -22,28 +26,37 @@ export default function TechStackSection({ skills }: TechStackSectionProps) {
   const categories = Object.entries(groupedSkills)
 
   return (
-    <section className="px-0 sm:px-8 md:px-12 py-20 sm:py-32 overflow-x-clip" id="stack">
+    <section
+      className={cn(
+        "px-4 sm:px-8 md:px-12 py-20 sm:py-32 overflow-x-clip",
+        standalone && "pt-28 sm:pt-32"
+      )}
+      id="stack"
+    >
       <div className="max-w-screen-2xl mx-auto">
-        <div className="flex justify-between items-baseline gap-3 mb-10 sm:mb-16 pb-6 sm:pb-8 min-w-0 px-4 sm:px-0">
-          <h2 className="font-headline text-3xl sm:text-4xl font-bold tracking-tight text-white">TECHNICAL_STACK</h2>
-          <span className="font-label text-[8px] sm:text-[9px] text-white/30 uppercase tracking-[0.08em] sm:tracking-[0.2em] text-right whitespace-nowrap">v2.4 // stable</span>
+        <div className="flex items-center gap-3 sm:gap-6 mb-10 sm:mb-14 min-w-0">
+          <h2 className={cn(ui.sectionTitle, "shrink-0")}>Tech Stack</h2>
+          <div className={ui.sectionDivider} />
+          <span className={cn(ui.sectionLabel, "whitespace-nowrap text-white/30")}>
+            {categories.length} categories
+          </span>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-0">
-          {categories.map(([category, items], index) => (
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          {categories.map(([category, items]) => (
             <div
               key={category}
-              className={`p-4 sm:p-10 ${
-                index === categories.length - 1 && categories.length % 2 === 1 ? "col-span-2 md:col-span-1" : ""
-              } ${
-                index % 2 === 0 ? "text-left pr-2 pl-4" : "text-right pl-2 pr-4"
-              } md:text-left md:px-10`}
+              className={cn(ui.card, ui.cardPadding, "hover:border-accent/20")}
             >
-              <h3 className="text-accent font-label text-[9px] sm:text-[10px] uppercase tracking-[0.08em] sm:tracking-[0.3em] mb-4 sm:mb-8 block">
+              <h3 className="font-mono text-accent text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-5">
                 {category}
               </h3>
-              <ul className="space-y-3 sm:space-y-6 font-label">
+              <ul className="space-y-2.5">
                 {items.map((item) => (
-                  <li key={item} className="text-white/60 text-[13px] sm:text-sm leading-snug hover:text-accent transition-colors cursor-pointer">
+                  <li
+                    key={item}
+                    className="font-body text-on-surface-variant text-sm leading-snug hover:text-accent transition-colors"
+                  >
                     {item}
                   </li>
                 ))}
